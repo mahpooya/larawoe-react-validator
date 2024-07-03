@@ -1,51 +1,153 @@
-// Simple React Validator v1.6.2 | Created By Dockwa | MIT License | 2017 - Present
+// Larawoe React Validator v1.6.7 | Created By Dockwa | Moded By Mahpooya | MIT License | 2017 - Present
 ;(function(root, factory) {
   if (typeof define === 'function' && define.amd) {
-    define(['simple-react-validator'], factory);
+    define(['larawoe-react-validator'], factory);
   } else if (typeof exports === 'object') {
-    module.exports = factory(require('simple-react-validator'));
+    module.exports = factory(require('larawoe-react-validator'));
   } else {
-    root.SimpleReactValidatorLocaleNl = factory(root.SimpleReactValidator);
+    root.LarawoeReactValidatorLocaleNl = factory(root.LarawoeReactValidator);
   }
-}(this, function(SimpleReactValidator) {
+}(this, function(LarawoeReactValidator) {
 "use strict";
 
 // Dutch
-SimpleReactValidator.addLocale('nl', {
-  accepted: ':attribute moet geaccepteerd zijn.',
-  after: ':attribute moet een datum na :date zijn.',
-  after_or_equal: ':attribute moet een datum na of gelijk aan :date zijn.',
-  alpha: ':attribute mag alleen letters bevatten.',
-  alpha_space: ':attribute mag alleen letters en spaties bevatten.',
-  alpha_num: ':attribute mag alleen letters en nummers bevatten.',
-  alpha_num_space: ':attribute mag alleen letters, nummers, en spaties bevatten.',
-  alpha_num_dash: ':attribute mag alleen letters, nummers, underscores (_) en streepjes (-) bevatten.',
-  alpha_num_dash_space: ':attribute mag alleen letters, nummers, spaties, underscores (_) en streepjes (-) bevatten.',
-  array: ':attribute moet geselecteerde elementen bevatten.',
-  before: ':attribute moet een datum voor :date zijn.',
-  before_or_equal: ':attribute moet een datum voor of gelijk aan :date zijn.',
-  between: ':attribute moet tussen :min en :max:type zijn.',
-  "boolean": ':attribute moet ja of nee zijn.',
-  card_exp: ':attribute moet een geldige vervaldatum zijn.',
-  card_num: ':attribute moet een geldig credit card nummer zijn .',
-  currency: ':attribute moet een geldige valuta zijn.',
-  date: ':attribute moet een datum bevatten.',
-  date_equals: ':attribute moet een datum gelijk aan :date zijn.',
-  email: ':attribute is geen geldig e-mailadres.',
-  "in": ':attribute moet een van :values zijn.',
-  integer: ':attribute moet een getal zijn.',
-  max: ':attribute mag niet hoger dan :max:type zijn.',
-  min: ':attribute moet minimaal :min:type zijn.',
-  not_in: 'Het formaat van :attribute is ongeldig.',
-  not_regex: ':attribute formaat is ongeldig.',
-  numeric: ':attribute moet een nummer zijn.',
-  phone: ':attribute moet een geldig telefoonnummer zijn',
-  regex: ':attribute formaat is ongeldig.',
-  required: ':attribute is verplicht.',
-  size: ':attribute moet :size:type zijn.',
-  string: ':attribute moet een tekst zijn.',
-  "typeof": ':attribute is niet het correcte type voor :type.',
-  url: ':attribute moet een geldig URL zijn.'
+LarawoeReactValidator.addLocale("nl", {
+  accepted: {
+    message: ":attribute moet geaccepteerd zijn.",
+    summary: "Accepteren vereist."
+  },
+  after: {
+    message: ":attribute moet een datum na :date zijn.",
+    summary: "Na :date."
+  },
+  after_or_equal: {
+    message: ":attribute moet een datum na of gelijk aan :date zijn.",
+    summary: "Na/op :date."
+  },
+  alpha: {
+    message: ":attribute mag alleen letters bevatten.",
+    summary: "Alleen letters."
+  },
+  alpha_space: {
+    message: ":attribute mag alleen letters en spaties bevatten.",
+    summary: "Alleen letters en spaties."
+  },
+  alpha_num: {
+    message: ":attribute mag alleen letters en nummers bevatten.",
+    summary: "Alleen letters en cijfers."
+  },
+  alpha_num_space: {
+    message: ":attribute mag alleen letters, nummers, en spaties bevatten.",
+    summary: "Alleen letters, cijfers en spaties."
+  },
+  alpha_num_dash: {
+    message: ":attribute mag alleen letters, nummers, underscores (_) en streepjes (-) bevatten.",
+    summary: "Alleen letters, cijfers en streepjes."
+  },
+  alpha_num_dash_space: {
+    message: ":attribute mag alleen letters, nummers, spaties, underscores (_) en streepjes (-) bevatten.",
+    summary: "Alleen letters, cijfers, streepjes en spaties."
+  },
+  array: {
+    message: ":attribute moet geselecteerde elementen bevatten.",
+    summary: "Array vereist."
+  },
+  before: {
+    message: ":attribute moet een datum voor :date zijn.",
+    summary: "Voor :date."
+  },
+  before_or_equal: {
+    message: ":attribute moet een datum voor of gelijk aan :date zijn.",
+    summary: "Voor/op :date."
+  },
+  between: {
+    message: ":attribute moet tussen :min en :max:type zijn.",
+    summary: "Tussen :min en :max:type."
+  },
+  "boolean": {
+    message: ":attribute moet ja of nee zijn.",
+    summary: "Moet een boolean zijn."
+  },
+  card_exp: {
+    message: ":attribute moet een geldige vervaldatum zijn.",
+    summary: "Geldige vervaldatum."
+  },
+  card_num: {
+    message: ":attribute moet een geldig credit card nummer zijn .",
+    summary: "Geldig creditcardnummer."
+  },
+  currency: {
+    message: ":attribute moet een geldige valuta zijn.",
+    summary: "Geldige valuta."
+  },
+  date: {
+    message: ":attribute moet een datum bevatten.",
+    summary: "Datum vereist."
+  },
+  date_equals: {
+    message: ":attribute moet een datum gelijk aan :date zijn.",
+    summary: "Op :date datum"
+  },
+  email: {
+    message: ":attribute is geen geldig e-mailadres.",
+    summary: "Geldig e-mailadres."
+  },
+  "in": {
+    message: ":attribute moet een van :values zijn.",
+    summary: "Moet in :values zijn."
+  },
+  integer: {
+    message: ":attribute moet een getal zijn.",
+    summary: "Geheel getal vereist."
+  },
+  max: {
+    message: ":attribute mag niet hoger dan :max:type zijn.",
+    summary: "Max: :max:type."
+  },
+  min: {
+    message: ":attribute moet minimaal :min:type zijn.",
+    summary: "Min: :min:type."
+  },
+  not_in: {
+    message: "Het formaat van :attribute is ongeldig.",
+    summary: "Mag niet in :values zijn."
+  },
+  not_regex: {
+    message: ":attribute formaat is ongeldig.",
+    summary: "Mag niet overeenkomen met het patroon."
+  },
+  numeric: {
+    message: ":attribute moet een nummer zijn.",
+    summary: "Alleen numeriek."
+  },
+  phone: {
+    message: ":attribute moet een geldig telefoonnummer zijn",
+    summary: "Geldig telefoonnummer."
+  },
+  regex: {
+    message: ":attribute formaat is ongeldig.",
+    summary: "Moet overeenkomen met het patroon."
+  },
+  required: {
+    message: ":attribute is verplicht.",
+    summary: "Vereist."
+  },
+  size: {
+    message: ":attribute moet :size:type zijn.",
+    summary: "Grootte: :size:type."
+  },
+  string: {
+    message: ":attribute moet een tekst zijn.",
+    summary: "String vereist."
+  },
+  "typeof": {
+    message: ":attribute is niet het correcte type voor :type.",
+    summary: "Onjuist type, :type vereist."
+  },
+  url: {
+    message: ":attribute moet een geldig URL zijn.",
+    summary: "URL vereist"
+  }
 });
 return null;
 }));

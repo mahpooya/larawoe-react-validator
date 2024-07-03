@@ -5,7 +5,11 @@ interface IObject {
 interface IOptions {
   validators?: IRules;
   messages?: any;
+  summaries?: any;
   className?: any;
+  splitter?: any;
+  fieldNamePrefix?: any;
+  fieldNameSuffix?: any;
   autoForceUpdate?: any;
   element?: any;
   locale?: string;
@@ -18,6 +22,8 @@ interface IRules {
     message: string;
     rule: (val: any, params?: any) => boolean;
     messageReplace?: (message: string, params?: any) => string;
+    summaryReplace?: (message: string, params?: any) => string;
+    messageAndSummaryReplace?: (message: string, params?: any) => string;
     required?: boolean;
   }
 }
@@ -35,6 +41,7 @@ interface IHelpers {
   testRegex(value: any, regex: RegExp): boolean;
   forceUpdateIfNeeded(): void;
   message(rule: any, field: any, options: any, rules: any): any;
+  summary(rule: any, field: any, options: any, rules: any): any;
   humanizeFieldName(field: string): string;
   element(message: any, options: any): any;
   numeric(val: any): boolean;
@@ -43,20 +50,27 @@ interface IHelpers {
   sizeText(type: any): string;
 }
 
-declare class SimpleReactValidator {
+declare class LarawoeReactValidator {
   constructor(options?: IOptions);
   fields: IObject;
   visibleFields: any[];
   errorMessages: IObject;
+  errorCauses: IObject;
   messagesShown: boolean;
   rules: IRules;
 
   messages: IOptions["messages"];
+  summaries: IOptions["summaries"];
   className: IOptions["className"];
+  splitter: IOptions["splitter"];
+  fieldNamePrefix: IOptions["fieldNamePrefix"];
+  fieldNameSuffix: IOptions["fieldNameSuffix"];
   autoForceUpdate: IOptions["autoForceUpdate"];
   element: IOptions["element"];
 
   getErrorMessages(): IObject;
+  getErrorSummaries(): IObject;
+  getErrorCauses(): IObject;
   showMessages(): void;
   hideMessages(): void;
   showMessageFor(field: string): void;
@@ -67,8 +81,11 @@ declare class SimpleReactValidator {
   messageWhenPresent(message: any, options?: IObject): any;
   messageAlways(field: string, message: any, options?: IObject): any;
   check(inputValue: any, validations: any, options?: IObject): boolean;
+  summaryElement(field: string, inputValue: any, validations: any, options?: IObject): any;
+  register(field: string, inputValue: any, validations: any, options?: IObject): void;
   message(field: string, inputValue: any, validations: any, options?: IObject): any;
+  registerValidator(field: string, inputValue: any, validations: any, options?: IObject, requireElement?: boolean): any;
   helpers: IHelpers;
 }
 
-export default SimpleReactValidator;
+export default LarawoeReactValidator;

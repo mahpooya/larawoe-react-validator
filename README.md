@@ -1,23 +1,25 @@
 <p align="center">
-  <h3 align="center">Simple React Validator</h3>
+  <h3 align="center">Larawoe React Validator</h3>
 
   <p align="center">
-    A simple react and react native form validator inspired by Laravel validation.
+    A simple react and react native form validator inspired by Laravel validation (but not well enough, its woe) 
     <br>
-    <a href="https://www.npmjs.com/package/simple-react-validator"><img src="https://img.shields.io/npm/v/simple-react-validator.svg" /></a>
-    <a href="https://www.npmjs.com/package/simple-react-validator"><img src="https://img.shields.io/npm/dt/simple-react-validator.svg" /></a>
-    <a href="https://www.jsdelivr.com/package/npm/simple-react-validator"><img src="https://data.jsdelivr.com/v1/package/npm/simple-react-validator/badge?style=rounded" /></a>
+    <a href="https://www.npmjs.com/package/larawoe-react-validator"><img src="https://img.shields.io/npm/v/larawoe-react-validator.svg" /></a>
+    <a href="https://www.npmjs.com/package/larawoe-react-validator"><img src="https://img.shields.io/npm/dt/larawoe-react-validator.svg" /></a>
+    <a href="https://www.jsdelivr.com/package/npm/larawoe-react-validator"><img src="https://data.jsdelivr.com/v1/package/npm/larawoe-react-validator/badge?style=rounded" /></a>
     <br>
-    <a href="https://www.npmjs.com/package/simple-react-validator"><strong>View on NPM »</strong></a>
+    <a href="https://www.npmjs.com/package/larawoe-react-validator"><strong>View on NPM »</strong></a>
   </p>
 </p>
 
 [![Powered by Dockwa](https://raw.githubusercontent.com/dockwa/openpixel/dockwa/by-dockwa.png)](https://engineering.dockwa.com/)
 
-# About
-Simple React Validator is exactly as it sounds. We wanted to build a validator for react that had minimal configuration and felt natural to use. It's configuration and usage is similar to the Laravel PHP framework and make validation as easy as one line.
+[![Powered by Mahpooya](https://github.com/mahpooya/larawoe-react-validator/assets/6397687/b13689f4-9213-4a5a-8753-b044902a303c)](https://github.com/mahpooya)
 
-[Working Example](https://dockwa.github.io/simple-react-validator/index.html)
+# About
+Larawoe React Validator is a simple enhanced validator. We wanted to build a validator for react that had minimal configuration and felt natural to use. It's configuration and usage is similar to the Laravel PHP framework and make validation as easy as one line.
+
+[Working Example](https://mahpooya.github.io/larawoe-react-validator/index.html)
 
 # Documentation
 1. [Usage](#usage)
@@ -32,39 +34,52 @@ Simple React Validator is exactly as it sounds. We wanted to build a validator f
     1. [Element](#1-element)
     2. [Class Name](#2-classname)
     3. [Messages](#3-messages)
-    4. [Validators](#4-validators)
-    5. [Auto Force Update](#5-autoforceupdate)
-    6. [Localization](#6-locale)
+    4. [Summaries](#4-summaries)
+    5. [Validators](#5-validators)
+    6. [Auto Force Update](#6-autoforceupdate)
+    7. [Localization](#7-locale)
+    8. [Splitter](#8-splitter)
+    9. [FieldNamePrefix](#9-fieldNamePrefix)
+    10. [FieldNameSuffix](#10-fieldNameSuffix)
 5. [Custom Validators](#custom-validators)
+6. [Modes](#modes)
+   1. [Register](#1-register)
+   2. [All Error Messages](#2-all-error-messages)
+   3. [Summaries](#3-summaries)
+   4. [Causes](#4-causes)
+   5. [FieldNamePrefix/FieldNameSuffix](#5-fieldNamePrefix-fieldNameSuffix)
+   6. [Splitter](#6-splitter)
+   7. [PascalCase](#7-PascalCase)
+   7. [CSV Size Type](#8-CSV-size-type)
 
 # Usage
-Open the `example/index.html` file for more usage examples of the library or check out the [Example](https://dockwa.github.io/simple-react-validator)
+Open the `example/index.html` file for more usage examples of the library or check out the [Example](https://mahpooya.github.io/larawoe-react-validator)
 
 **npm**
 ```
-npm install simple-react-validator --save
+npm install larawoe-react-validator --save
 ```
 
 **bower**
 ```
-bower install simple-react-validator --save
+bower install larawoe-react-validator --save
 ```
 
 # 3 Easy Steps
 1. Import and Initialize the validator.
 ```javascript
-import SimpleReactValidator from 'simple-react-validator';
+import LarawoeReactValidator from 'larawoe-react-validator';
 ```
 es5
 ```javascript
 componentWillMount: function() {
-  this.validator = new SimpleReactValidator();
+  this.validator = new LarawoeReactValidator();
 },
 ```
 es6
 ```javascript
 constructor() {
-  this.validator = new SimpleReactValidator();
+  this.validator = new LarawoeReactValidator();
 }
 ```
 
@@ -139,7 +154,7 @@ if (this.validator.fieldValid('email')) {
 As of v1.1.0 you can initialize the the constructor with the `autoForceUpdate` option and pass it react instance that is responsible for the state. This will automatically call the `this.forceUpdate()` for you when `showMessages`, `hideMessages`, `showMessageFor`, and `hideMessageFor` are called.
 ```javascript
 constructor() {
-  this.validator = new SimpleReactValidator({autoForceUpdate: this});
+  this.validator = new LarawoeReactValidator({autoForceUpdate: this});
 }
 
 
@@ -164,7 +179,7 @@ constructor() {
 
 `messageWhenPresent(message, options = {})` Show a message when the message is set, good for ajax validation errors.
 
-`check(value, validations)` A simple way of checking a value against a built in validation rule. Does not add to the validator, just gives a true / false return value.
+`check(value, validations)` A simple way of checking a value against a built-in validation rule. Does not add to the validator, just gives a true / false return value.
 
 `message(field, value, validations, options = {})` How you define validation rules and add messages into the form.
 
@@ -204,20 +219,20 @@ render() {
 
 #### 4. React Hooks
 
-SimpleReactValidator is a class but if you instantiate a class in a stateless React component it will do this on every render (losing any message information that may have been added). 
+LarawoeReactValidator is a class but if you instantiate a class in a stateless React component it will do this on every render (losing any message information that may have been added). 
 
-useRef: instruct React to treat SimpleReactValidator as a singleton:
+useRef: instruct React to treat LarawoeReactValidator as a singleton:
 ```jsx
-const simpleValidator = useRef(new SimpleReactValidator())
+const larawoeValidator = useRef(new LarawoeReactValidator())
 
 <Input
   name="name"
   value={companyInformation.name}
   onChange={handleInputChange}
-  onBlur={()=>simpleValidator.current.showMessageFor('name')} />
-{simpleValidator.current.message('name', companyInformation.name, 'required')}
+  onBlur={()=>larawoeValidator.current.showMessageFor('name')} />
+{larawoeValidator.current.message('name', companyInformation.name, 'required')}
 ```
-For more detail see [issue: #97](https://github.com/dockwa/simple-react-validator/issues/97)
+For more detail see [issue: #97](https://github.com/mahpooya/larawoe-react-validator/issues/97)
 
 #### 5. React Native
 
@@ -383,25 +398,47 @@ Must be a valid url. Ex. https://dockwa.com or dockwa.com
 
 
 # Options
-The Simple React Validator can receive an options object when initialized or as the fourth parameter when defining a validator. There are 4 options you can provide.
+The Larawoe React Validator can receive an options object when initialized or as the fourth parameter when defining a validator. There are 4 options you can provide.
 #### 1. element:
 Accepts a block where you can return the default element that you want to wrap the message from a validator message. The default element is `<div className="srv-validation-message">{message}</div>`. If you are using React Native the default will be just the message the gets returned. You can also set `element: false` to just return a message.
   * **Takes 2 params**
   * message: The message coming from the validator.
   * className (optional): Will optionally be provided so you can change the className on a per validation basis.
 ```jsx
-this.validator = new SimpleReactValidator({
+this.validator = new LarawoeReactValidator({
   element: message => <div>{message}</div>
   // OR
   element: (message, className) => <div className={className}>{message}</div>
 })
 ```
+For example if you want to replace field names with localized ones you can replaceAll the message.
+```jsx
+localizeFieldNames(message) {
+  // alert(typeof message)
+  const { t } = this.props
+
+  return message
+    .replaceAll(" input", "")
+    .replaceAll("user name", t("UserNameInputLabel"))
+    .replaceAll("password", t("PasswordInputLabel"))
+    .replaceAll("characters", t("Characters"))
+    .replaceAll("elements", t("Elements"))
+}
+
+this.validator = new LarawoeReactValidator({
+  element: message => <div>{localizeFieldNames(message)}</div>
+  // OR
+  element: (message, className) => <div className={className}>{localizeFieldNames(message)}</div>
+})
+```
+Consider using a fieldNamePrefix/fieldNameSuffix to prevent replace similar field names in some cases (example: province and provinces, UserNo and OnlineUserNo). Then your localize field name method simply replace [field name] to your desire without conflicting with others 
+
 #### 2. className:
 String of classes to be passed into an element, default is `srv-validation-message` and can be overriden.
 #### 3. messages:
 Accepts an object to override validation messages. It also accepts a default which will override all messages.
 ```jsx
-this.validator = new SimpleReactValidator({
+this.validator = new LarawoeReactValidator({
   messages: {
     email: 'That is not an email.'
     // OR
@@ -409,24 +446,53 @@ this.validator = new SimpleReactValidator({
   },
 })
 ```
-#### 4. validators:
+#### 4. summaries:
+Accepts an object to override validation summaries. It also accepts a default which will override all messages.
+```jsx
+this.validator = new LarawoeReactValidator({
+  summaries: {
+    email: 'That is not an email.'
+    // OR
+    default: 'Validation has failed!'  // will override all messages
+  },
+})
+```
+#### 5. validators:
 Accepts an object of custom validators. See [Custom Validators](#custom-validators) for more info on defining custom validators.
-#### 5. autoForceUpdate:
+#### 6. autoForceUpdate:
 Accepts a react instance and will automatically be called when messages are shown and hidden automatically. [More on autoForceUpdate](#note-autoforceupdate)
-#### 6. locale:
-Accepts a string with the localized messages of your choice. **For this to work, the correct language file also needs to be loaded into your front end.** [Current Supported Languages](https://github.com/dockwa/simple-react-validator/tree/master/src/locale). To contribute to translating the project use [this file as a template.](https://github.com/dockwa/simple-react-validator/blob/master/src/locale/template-en.js)
+#### 7. locale:
+Accepts a string with the localized messages of your choice. **For this to work, the correct language file also needs to be loaded into your front end.** [Current Supported Languages](https://github.com/mahpooya/larawoe-react-validator/tree/master/src/locale). To contribute to translating the project use [this file as a template.](https://github.com/mahpooya/larawoe-react-validator/blob/master/src/locale/template-en.js)
 ```jsx
 // sets french default validation messages.
-this.validator = new SimpleReactValidator({locale: 'fr'});
+this.validator = new LarawoeReactValidator({locale: 'fr'});
 ```
 You can apply custom messages with the [messages](#3-messages) option. However you can also apply a custom language that you can later select with the `addLocale` class method.
 ```jsx
-SimpleReactValidator.addLocale('klingon', {
+LarawoeReactValidator.addLocale('klingon', {
   accepted: 'Hab SoSlI’ Quch!',
   email: 'Heghlu’meH QaQ jajvam'
 });
 ...
-this.validator = new SimpleReactValidator({locale: 'klingon'});
+this.validator = new LarawoeReactValidator({locale: 'klingon'});
+```
+#### 8. Splitter:
+Accepts a string for changing validations splitter of your choice. default separator is | character
+```jsx
+// sets french default validation messages.
+this.validator = new LarawoeReactValidator({splitter: '&'});
+```
+#### 9. FieldNamePrefix:
+Accepts a string for adding a prefix to each field name that present in messages and summaries. adding some prefix/suffix can enhance your replacing field names to localized names, specially when a similar field name is present in your form and one of input names is a part of other field name and replacing is a pain in the neck because it replace wrong one of them. 
+```jsx
+// sets french default validation messages.
+this.validator = new LarawoeReactValidator({fieldNamePrefix: '['});
+```
+#### 10. FieldNameSuffix:
+Accepts a string for adding a suffix to each field name that present in messages and summaries. adding some prefix/suffix can enhance your replacing field names to localized names, specially when a similar field name is present in your form and one of input names is a part of other field name and replacing is a pain in the neck because it replace wrong one of them. 
+```jsx
+// sets french default validation messages.
+this.validator = new LarawoeReactValidator({fieldNameSuffix: ']'});
 ```
 
 
@@ -448,7 +514,7 @@ Example:
 
 ```javascript
 constructor() {
-  this.validator = new SimpleReactValidator({
+  this.validator = new LarawoeReactValidator({
     validators: {
       ip: {  // name the rule
         message: 'The :attribute must be a valid IP address and must be :values.',
@@ -480,3 +546,24 @@ render: function() {
   );
 },
 ```
+# Modes
+I forked and moded this library for some reason.
+### 1. register
+I want to have a validation registerer without getting element, to use for programmatically added fields, personally for using in a form-generator based on react-hook-form. So I added two new methods for only register validations 
+### 2. all error messages
+I want this validator to give me all error messages, to having all the rules that I applied to an input element executed and each one of theme that isn't pass set an error message. Original library (simple-react-validator) only provide first one. So I changed errorMessages to an array containing all errors. 
+### 3. summaries
+I want a very short message to display inside inputs as end adornment. So I add corresponding objects and helpers to keep and provide and manipulate summaries.
+Now all default validator rules and your custom ones are and must use messageAndSummaryReplace method to replace both messages and summaries field names at the same time, or use summaryReplace/messageReplace separately
+### 4. causes
+I want to know which rule cause the current error displayed. So I add corresponding objects and helpers to keep and provide causes.
+### 5. fieldNamePrefix fieldNameSuffix
+I want a prefix/suffix to surround the field names, So I can replaceAll field names with localized field names without conflicting similar field names
+### 6. splitter
+I don't use this myself, but I add ability to change separator character of validations.
+### 7. PascalCase
+I had some input names with PascalCase(for example ISP), but original library only converts snake_case or camelCase in its humanizeFieldName helper, causing some problems in my project
+### 7. CSV size type
+I want a validation size check for csv strings, to count number of items. So I added a site type csv in helper methods (size and sizeText)
+
+

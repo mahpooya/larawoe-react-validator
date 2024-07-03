@@ -1,51 +1,153 @@
-// Simple React Validator v1.6.2 | Created By Dockwa | MIT License | 2017 - Present
+// Larawoe React Validator v1.6.7 | Created By Dockwa | Moded By Mahpooya | MIT License | 2017 - Present
 ;(function(root, factory) {
   if (typeof define === 'function' && define.amd) {
-    define(['simple-react-validator'], factory);
+    define(['larawoe-react-validator'], factory);
   } else if (typeof exports === 'object') {
-    module.exports = factory(require('simple-react-validator'));
+    module.exports = factory(require('larawoe-react-validator'));
   } else {
-    root.SimpleReactValidatorLocaleId = factory(root.SimpleReactValidator);
+    root.LarawoeReactValidatorLocaleId = factory(root.LarawoeReactValidator);
   }
-}(this, function(SimpleReactValidator) {
+}(this, function(LarawoeReactValidator) {
 "use strict";
 
 // Indonesian
-SimpleReactValidator.addLocale('id', {
-  accepted: ':attribute harus diterima.',
-  after: ':attribute harus lebih dari :date.',
-  after_or_equal: ':attribute harus lebih dari atau sama dengan :date.',
-  alpha: ':attribute hanya boleh berisikan teks.',
-  alpha_space: ':attribute hanya boleh berisikan teks dan spasi.',
-  alpha_num: ':attribute hanya boleh berisikan teks dan angka.',
-  alpha_num_space: ':attribute hanya boleh berisikan teks, angka, dan spasi.',
-  alpha_num_dash: ':attribute hanya boleh berisikan teks, angka, dan garis datar.',
-  alpha_num_dash_space: ':attribute hanya boleh berisikan teks, angka, garis datar dan spasi.',
-  array: ':attribute harus berupa array.',
-  before: ':attribute harus kurang dari :date.',
-  before_or_equal: ':attribute harus kurang dari atau sama dengan :date.',
-  between: ':attribute harus diantara :min dan :max:type.',
-  "boolean": ':attribute harus berupa boolean.',
-  card_exp: ':attribute harus berupa tanggal expire yang valid valid expiration date.',
-  card_num: ':attribute harus berupa nomor kartu kredit.',
-  currency: ':attribute harus berupa mata uang yang valid.',
-  date: ':attribute harus berupa tanggal.',
-  date_equals: ':attribute harus sama dengan :date.',
-  email: ':attribute harus berupa alamat email yang valid.',
-  "in": ':attribute terpilih harus :values.',
-  integer: ':attribute harus berupa integer.',
-  max: ':attribute harus kurang dari :max:type.',
-  min: ':attribute harus lebih dari :min:type.',
-  not_in: ':attribute terpilih tidak boleh sama dengan :values.',
-  not_regex: ':attribute tidak boleh cocok dengan pola yang ditentukan.',
-  numeric: ':attribute harus berupa angka.',
-  phone: ':attribute harus berupa nomor ponsel yang valid.',
-  regex: ':attribute harus cocok dengan pola yang ditentukan.',
-  required: ':attribute tidak boleh kosong.',
-  size: ':attribute harus :size:type.',
-  string: ':attribute harus berupa string.',
-  "typeof": ':attribute tidak cocok dengan tipe :type.',
-  url: ':attribute harus berupa url.'
+LarawoeReactValidator.addLocale("id", {
+  accepted: {
+    message: ":attribute harus diterima.",
+    summary: "Diperlukan penerimaan."
+  },
+  after: {
+    message: ":attribute harus lebih dari :date.",
+    summary: "Setelah :date."
+  },
+  after_or_equal: {
+    message: ":attribute harus lebih dari atau sama dengan :date.",
+    summary: "Setelah/pada :date."
+  },
+  alpha: {
+    message: ":attribute hanya boleh berisikan teks.",
+    summary: "Atribut hanya huruf."
+  },
+  alpha_space: {
+    message: ":attribute hanya boleh berisikan teks dan spasi.",
+    summary: "Hanya huruf dan spasi."
+  },
+  alpha_num: {
+    message: ":attribute hanya boleh berisikan teks dan angka.",
+    summary: "Hanya huruf dan angka."
+  },
+  alpha_num_space: {
+    message: ":attribute hanya boleh berisikan teks, angka, dan spasi.",
+    summary: "Huruf, angka, dan spasi."
+  },
+  alpha_num_dash: {
+    message: ":attribute hanya boleh berisikan teks, angka, dan garis datar.",
+    summary: "Hanya huruf, angka, dan tanda hubung."
+  },
+  alpha_num_dash_space: {
+    message: ":attribute hanya boleh berisikan teks, angka, garis datar dan spasi.",
+    summary: "Huruf, angka, tanda hubung, dan spasi."
+  },
+  array: {
+    message: ":attribute harus berupa array.",
+    summary: "Array diperlukan."
+  },
+  before: {
+    message: ":attribute harus kurang dari :date.",
+    summary: "Sebelum :date."
+  },
+  before_or_equal: {
+    message: ":attribute harus kurang dari atau sama dengan :date.",
+    summary: "Sebelum/pada :date."
+  },
+  between: {
+    message: ":attribute harus diantara :min dan :max:type.",
+    summary: "Antara :min dan :max:type."
+  },
+  "boolean": {
+    message: ":attribute harus berupa boolean.",
+    summary: "Harus berupa boolean."
+  },
+  card_exp: {
+    message: ":attribute harus berupa tanggal expire yang valid valid expiration date.",
+    summary: "Tanggal kedaluwarsa yang valid."
+  },
+  card_num: {
+    message: ":attribute harus berupa nomor kartu kredit.",
+    summary: "Nomor kartu kredit yang valid."
+  },
+  currency: {
+    message: ":attribute harus berupa mata uang yang valid.",
+    summary: "Mata uang yang valid."
+  },
+  date: {
+    message: ":attribute harus berupa tanggal.",
+    summary: "Tanggal diperlukan."
+  },
+  date_equals: {
+    message: ":attribute harus sama dengan :date.",
+    summary: "Pada tanggal :date."
+  },
+  email: {
+    message: ":attribute harus berupa alamat email yang valid.",
+    summary: "Alamat email valid."
+  },
+  "in": {
+    message: ":attribute terpilih harus :values.",
+    summary: "Harus berada dalam :values."
+  },
+  integer: {
+    message: ":attribute harus berupa integer.",
+    summary: "Diperlukan bilangan bulat."
+  },
+  max: {
+    message: ":attribute harus kurang dari :max:type.",
+    summary: "Maks.: :max:type."
+  },
+  min: {
+    message: ":attribute harus lebih dari :min:type.",
+    summary: "Min.: :min:type."
+  },
+  not_in: {
+    message: ":attribute terpilih tidak boleh sama dengan :values.",
+    summary: "Tidak boleh berada dalam :values."
+  },
+  not_regex: {
+    message: ":attribute tidak boleh cocok dengan pola yang ditentukan.",
+    summary: "Tidak boleh sesuai pola."
+  },
+  numeric: {
+    message: ":attribute harus berupa angka.",
+    summary: "Hanya angka."
+  },
+  phone: {
+    message: ":attribute harus berupa nomor ponsel yang valid.",
+    summary: "Nomor telepon yang valid."
+  },
+  regex: {
+    message: ":attribute harus cocok dengan pola yang ditentukan.",
+    summary: "Harus sesuai pola."
+  },
+  required: {
+    message: ":attribute tidak boleh kosong.",
+    summary: "Wajib diisi."
+  },
+  size: {
+    message: ":attribute harus :size:type.",
+    summary: "Ukuran: :size:type."
+  },
+  string: {
+    message: ":attribute harus berupa string.",
+    summary: "Diperlukan string."
+  },
+  "typeof": {
+    message: ":attribute tidak cocok dengan tipe :type.",
+    summary: "Tipe yang salah, diperlukan :type."
+  },
+  url: {
+    message: ":attribute harus berupa url.",
+    summary: "URL diperlukan."
+  }
 });
 return null;
 }));

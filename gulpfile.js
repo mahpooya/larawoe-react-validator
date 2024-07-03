@@ -14,18 +14,18 @@ var babel          = require('gulp-babel');
 var path           = require('path');
 var camelCase      = require('camelcase');
 var gutil          = require('gulp-util');
-var HEADER_COMMENT = '// Simple React Validator v1.6.2 | Created By Dockwa | MIT License | 2017 - Present\n';
+var HEADER_COMMENT = '// Larawoe React Validator v1.6.7 | Created By Dockwa | Moded By Mahpooya | MIT License | 2017 - Present\n';
 
 
 function build() {
-  return gulp.src('./src/simple-react-validator.js')
+  return gulp.src('./src/larawoe-react-validator.js')
   .pipe(babel())
   .pipe(umd({
     exports: function() {
-      return 'SimpleReactValidator';
+      return 'LarawoeReactValidator';
     },
     namespace: function() {
-      return 'SimpleReactValidator';
+      return 'LarawoeReactValidator';
     },
     dependencies: function() {
       return [
@@ -60,16 +60,16 @@ function buildLocales() {
       return 'null';
     },
     namespace: function(file) {
-      return `SimpleReactValidatorLocale${capitalizeFilename(file)}`;
+      return `LarawoeReactValidatorLocale${capitalizeFilename(file)}`;
     },
     dependencies: function() {
       return [
         {
-          name: 'simple-react-validator',
-          amd: 'simple-react-validator',
-          cjs: 'simple-react-validator',
-          global: 'SimpleReactValidator',
-          param: 'SimpleReactValidator'
+          name: 'larawoe-react-validator',
+          amd: 'larawoe-react-validator',
+          cjs: 'larawoe-react-validator',
+          global: 'LarawoeReactValidator',
+          param: 'LarawoeReactValidator'
         }
       ]
     }

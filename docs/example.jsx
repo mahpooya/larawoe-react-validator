@@ -5,7 +5,7 @@ class ExampleForm extends React.Component {
     this.state = {
       ajaxError: 'There was a server error the prevented the form from submitting.'
     };
-    this.validator = new SimpleReactValidator({
+    this.validator = new LarawoeReactValidator({
       // element: (message, className) => <div className="invalid-feedback d-block">{message}</div>,
       // locale: 'fr',
       autoForceUpdate: this,
@@ -52,6 +52,8 @@ class ExampleForm extends React.Component {
           <label>{name}</label>
           <input className="form-control" type={type} name={name} value={this.state[name]} onChange={this.handleInputChange.bind(this)} onBlur={() => this.validator.showMessageFor(name)} />
           {this.validator.message(name, value, rules)}
+          {(this.validator.messagesShown || this.validator.visibleFields.includes(name)) ? "summary:" : ""}
+          {this.validator.summaryElement(name, value, rules, {element: message => <span className="badge badge-secondary" role="badge">{message}</span>})}
         </div>
       </div>
     );
@@ -76,6 +78,8 @@ class ExampleForm extends React.Component {
                   <span>accepted</span>
                 </label>
                 {this.validator.message('checkbox', this.state.accepted, 'accepted')}
+                {(this.validator.messagesShown || this.validator.visibleFields.includes('checkbox')) ? "summary:" : ""}
+                {this.validator.summaryElement(name, this.state.accepted, 'accepted', {element: message => <span className="badge badge-secondary" role="badge">{message}</span>})}
               </div>
             </div>
 

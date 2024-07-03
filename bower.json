@@ -1,10 +1,16 @@
 {
-  "name": "simple-react-validator",
-  "description": "A simple react form validator inspired by Laravel validation.",
-  "main": "dist/simple-react-validator.min.js",
-  "version": "1.6.0",
+  "name": "larawoe-react-validator",
+  "description": "A simple react form validator inspired by Laravel validation (but not well enough, its woe, Moded by Mahpooya Damavand)",
+  "main": "dist/larawoe-react-validator.min.js",
+  "version": "1.6.7",
   "authors": [
-    "Stuart Yamartino"
+    {
+        "name": "Stuart Yamartino"
+    },
+    {
+        "name": "Mahpooya Damavand",
+        "email": "mahpooya@gmail.com"
+    }
   ],
   "license": "MIT",
   "keywords": [
@@ -12,9 +18,10 @@
     "validator",
     "form",
     "form-validator",
-    "simple-react-validator"
+    "simple-react-validator",
+    "larawoe-react-validator"
   ],
-  "homepage": "https://github.com/dockwa/simple-react-validator",
+  "homepage": "https://github.com/mahpooya/larawoe-react-validator",
   "ignore": [
     "**/.*",
     "node_modules",

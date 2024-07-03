@@ -1,16 +1,16 @@
 {
-  "name": "simple-react-validator",
-  "version": "1.6.2",
-  "description": "A simple react form validator inspired by Laravel validation.",
-  "main": "dist/simple-react-validator.min.js",
+  "name": "larawoe-react-validator",
+  "version": "1.6.7",
+  "description": "A simple react and react native form validator inspired by Laravel validation (but not well enough, its woe, Moded by Mahpooya Damavand from v1.6.2)",
+  "main": "dist/larawoe-react-validator.min.js",
   "types": "src/index.d.ts",
   "dependencies": {},
   "devDependencies": {
-    "@babel/core": "^7.2.0",
-    "@babel/plugin-proposal-class-properties": "^7.8.3",
-    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
-    "@babel/preset-env": "^7.8.3",
-    "camelcase": "^6.0.0",
+    "@babel/core": "^7.23.2",
+    "@babel/plugin-transform-class-properties": "^7.22.5",
+    "@babel/plugin-transform-object-rest-spread": "^7.22.15",
+    "@babel/preset-env": "^7.23.2",
+    "camelcase": "^6.3.0",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
     "gulp-inject-string": "^1.1.1",
@@ -30,19 +30,28 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dockwa/simple-react-validator.git"
+    "url": "git+https://github.com/mahpooya/larawoe-react-validator.git"
   },
   "keywords": [
     "react",
     "validator",
     "form",
     "form-validator",
-    "simple-react-validator"
+    "simple-react-validator",
+    "larawoe-react-validator"
   ],
-  "author": "Stuart Yamartino",
+  "authors": [
+      {
+          "name": "Stuart Yamartino"
+      },
+      {
+          "name": "Mahpooya Damavand",
+          "email": "mahpooya@gmail.com"
+      }
+  ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dockwa/simple-react-validator/issues"
+    "url": "https://github.com/mahpooya/larawoe-react-validator/issues"
   },
-  "homepage": "https://github.com/dockwa/simple-react-validator#readme"
+  "homepage": "https://github.com/mahpooya/larawoe-react-validator#readme"
 }

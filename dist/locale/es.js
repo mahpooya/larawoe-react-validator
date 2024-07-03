@@ -1,51 +1,123 @@
-// Simple React Validator v1.6.2 | Created By Dockwa | MIT License | 2017 - Present
+// Larawoe React Validator v1.6.7 | Created By Dockwa | Moded By Mahpooya | MIT License | 2017 - Present
 ;(function(root, factory) {
   if (typeof define === 'function' && define.amd) {
-    define(['simple-react-validator'], factory);
+    define(['larawoe-react-validator'], factory);
   } else if (typeof exports === 'object') {
-    module.exports = factory(require('simple-react-validator'));
+    module.exports = factory(require('larawoe-react-validator'));
   } else {
-    root.SimpleReactValidatorLocaleEs = factory(root.SimpleReactValidator);
+    root.LarawoeReactValidatorLocaleEs = factory(root.LarawoeReactValidator);
   }
-}(this, function(SimpleReactValidator) {
+}(this, function(LarawoeReactValidator) {
 "use strict";
 
 // Spanish
-SimpleReactValidator.addLocale('es', {
-  accepted: ':attribute debe ser aceptado.',
-  after: ':attribute debe ser una fecha posterior a :date.',
-  after_or_equal: ':attribute debe ser una fecha posterior o igual a :date.',
-  alpha: ':attribute sólo debe contener letras.',
-  // alpha_space          : 'The :attribute may only contain letters and spaces.',
-  // alpha_num            : 'The :attribute may only contain letters and numbers.',
-  // alpha_num_space      : 'The :attribute may only contain letters, numbers, and spaces.',
-  // alpha_num_dash       : 'The :attribute may only contain letters, numbers, and dashes.',
-  // alpha_num_dash_space : 'The :attribute may only contain letters, numbers, dashes, and spaces.',
-  array: ':attribute debe ser un conjunto.',
-  before: ':attribute debe ser una fecha anterior a :date.',
-  before_or_equal: ':attribute debe ser una fecha anterior o igual a :date.',
-  between: ':attribute tiene que estar entre :min - :max:type.',
-  "boolean": 'El campo :attribute debe tener un valor verdadero o falso.',
-  // card_exp             : 'The :attribute must be a valid expiration date.',
-  // card_num             : 'The :attribute must be a valid credit card number.',
-  // currency             : 'The :attribute must be a valid currency.',
-  date: ':attribute no es una fecha válida.',
-  date_equals: ':attribute debe ser una fecha igual a :date.',
-  email: ':attribute no es un correo válido',
-  "in": ':attribute es inválido :values.',
-  integer: ':attribute debe ser un número entero.',
-  max: ':attribute no debe ser mayor a :max:type.',
-  min: 'El tamaño de :attribute debe ser de al menos :min:type.',
-  not_in: ':attribute es inválido :values.',
-  not_regex: 'El formato del campo :attribute no es válido.',
-  numeric: ':attribute debe ser numérico.',
-  // phone                : 'The :attribute must be a valid phone number.',
-  regex: 'El formato de :attribute es inválido.',
-  required: 'El campo :attribute es obligatorio.',
-  size: 'El tamaño de :attribute debe ser :size:type.',
-  string: 'El campo :attribute debe ser una cadena de caracteres.',
-  // typeof               : 'The :attribute is not the correct type of :type.',
-  url: 'El formato :attribute es inválido.'
+LarawoeReactValidator.addLocale("es", {
+  accepted: {
+    message: ":attribute debe ser aceptado.",
+    summary: "Aceptando necesario."
+  },
+  after: {
+    message: ":attribute debe ser una fecha posterior a :date.",
+    summary: "Después :date."
+  },
+  after_or_equal: {
+    message: ":attribute debe ser una fecha posterior o igual a :date.",
+    summary: "después/en :date."
+  },
+  alpha: {
+    message: ":attribute sólo debe contener letras.",
+    summary: "Atributo solo letras."
+  },
+  // alpha_space          : { message: "The :attribute may only contain letters and spaces.", summary: "Solo letras y espacios." },
+  // alpha_num            : { message: "The :attribute may only contain letters and numbers.", summary: "Solo letras y números." },
+  // alpha_num_space      : { message: "The :attribute may only contain letters, numbers, and spaces.", summary: "Letras, números y espacios." },
+  // alpha_num_dash       : { message: "The :attribute may only contain letters, numbers, and dashes.", summary: "Letras, números y guiones." },
+  // alpha_num_dash_space : { message: "The :attribute may only contain letters, numbers, dashes, and spaces.", summary: "Letras, números, guiones y espacios." },
+  array: {
+    message: ":attribute debe ser un conjunto.",
+    summary: "Requerido un arreglo."
+  },
+  before: {
+    message: ":attribute debe ser una fecha anterior a :date.",
+    summary: "Antes :date."
+  },
+  before_or_equal: {
+    message: ":attribute debe ser una fecha anterior o igual a :date.",
+    summary: "antes/en :date."
+  },
+  between: {
+    message: ":attribute tiene que estar entre :min - :max:type.",
+    summary: "Entre :min y :max:type."
+  },
+  "boolean": {
+    message: "El campo :attribute debe tener un valor verdadero o falso.",
+    summary: "Debe ser un booleano."
+  },
+  // card_exp             : { message: "The :attribute must be a valid expiration date.", summary: "Fecha de vencimiento válida." },
+  // card_num             : { message: "The :attribute must be a valid credit card number.", summary: "Número de tarjeta de crédito válido." },
+  // currency             : { message: "The :attribute must be a valid currency.", summary: "Moneda válida." },
+  date: {
+    message: ":attribute no es una fecha válida.",
+    summary: "Fecha requerida."
+  },
+  date_equals: {
+    message: ":attribute debe ser una fecha igual a :date.",
+    summary: "En la fecha :date."
+  },
+  email: {
+    message: ":attribute no es un correo válido",
+    summary: "Correo electrónico válido."
+  },
+  "in": {
+    message: ":attribute es inválido :values.",
+    summary: "Debe estar en :values."
+  },
+  integer: {
+    message: ":attribute debe ser un número entero.",
+    summary: "Número entero necesario."
+  },
+  max: {
+    message: ":attribute no debe ser mayor a :max:type.",
+    summary: "Máx.: :max:type."
+  },
+  min: {
+    message: "El tamaño de :attribute debe ser de al menos :min:type.",
+    summary: "Mín.: :min:type."
+  },
+  not_in: {
+    message: ":attribute es inválido :values.",
+    summary: "No debe estar en :values."
+  },
+  not_regex: {
+    message: "El formato del campo :attribute no es válido.",
+    summary: "No debe coincidir con el patrón."
+  },
+  numeric: {
+    message: ":attribute debe ser numérico.",
+    summary: "Solo numérico."
+  },
+  // phone                : { message: "The :attribute must be a valid phone number.", summary: "Número de teléfono válido." },
+  regex: {
+    message: "El formato de :attribute es inválido.",
+    summary: "Debe coincidir con el patrón."
+  },
+  required: {
+    message: "El campo :attribute es obligatorio.",
+    summary: "Requerido."
+  },
+  size: {
+    message: "El tamaño de :attribute debe ser :size:type.",
+    summary: "Tamaño: :size:type."
+  },
+  string: {
+    message: "El campo :attribute debe ser una cadena de caracteres.",
+    summary: "Cadena necesaria."
+  },
+  // typeof               : { message: "The :attribute is not the correct type of :type.", summary: "Tipo incorrecto, se necesita :type." },
+  url: {
+    message: "El formato :attribute es inválido.",
+    summary: "URL necesaria."
+  }
 });
 return null;
 }));

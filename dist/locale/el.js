@@ -1,51 +1,153 @@
-// Simple React Validator v1.6.2 | Created By Dockwa | MIT License | 2017 - Present
+// Larawoe React Validator v1.6.7 | Created By Dockwa | Moded By Mahpooya | MIT License | 2017 - Present
 ;(function(root, factory) {
   if (typeof define === 'function' && define.amd) {
-    define(['simple-react-validator'], factory);
+    define(['larawoe-react-validator'], factory);
   } else if (typeof exports === 'object') {
-    module.exports = factory(require('simple-react-validator'));
+    module.exports = factory(require('larawoe-react-validator'));
   } else {
-    root.SimpleReactValidatorLocaleEl = factory(root.SimpleReactValidator);
+    root.LarawoeReactValidatorLocaleEl = factory(root.LarawoeReactValidator);
   }
-}(this, function(SimpleReactValidator) {
+}(this, function(LarawoeReactValidator) {
 "use strict";
 
 // Greek
-SimpleReactValidator.addLocale('el', {
-  accepted: 'Πρέπει να αποδεχετείτε το πεδίο :attribute',
-  after: 'Η ημ/νία :attribute πρέπει να είναι μετά από :date.',
-  after_or_equal: 'Η ημ/νία :attribute πρέπει να είναι ίση με ή μετά από :date.',
-  alpha: 'Το πεδίο :attribute μπορεί να περιέχει μόνο γράμματα',
-  alpha_space: 'Το πεδίο :attribute μπορεί να περιέχει μόνο γράμματα και κενά.',
-  alpha_num: 'Το πεδίο :attribute μπορεί να περιέχει μόνο γράμματα και αριθμούς.',
-  alpha_num_space: 'Το πεδίο :attribute μπορεί να περιέχει μόνο γράμματα, κενά και αριθμούς.',
-  alpha_num_dash: 'Το πεδίο :attribute μπορεί να περιέχει μόνο γράμματα, κενά και παύλες(-).',
-  alpha_num_dash_space: 'Το πεδίο :attribute μπορεί να περιέχει μόνο αριθμούς, κενά και παύλες(-).',
-  array: 'Το πεδίο :attribute πρέπει να είναι array.',
-  before: 'Η ημ/νία πρέπει να είναι πριν από :date.',
-  before_or_equal: 'Η ημ/νία πρέπει να είναι πριν ή ίση με :date.',
-  between: 'Η τιμή του πεδίου :attribute πρέπει να βρίσκεται ανάμεσα από :min - :max:type.',
-  "boolean": 'Το πεδίο :attribute πρέπει να είναι boolean',
-  card_exp: 'To πεδίο :attribute πρέπει να είναι μια έγκυρη ημ/νία.',
-  card_num: 'Το πεδίο :attribute πρέπει να είναι ένας έγκυρος αριθμός κάρτας.',
-  currency: 'Το πεδίο :attribute πρέπει να έιναι ένα έγκυρο ποσό',
-  date: 'Το πεδίο :attribute πρέπει να είναι μια έγκυρη ημ/νία.',
-  date_equals: 'Η ημ/νία :attribute πρέπει να είναι ίδια με :date.',
-  email: 'Το πεδίο :attribute πρέπει να είναι ένα έγκυρο email.',
-  "in": 'To πεδίο :attribute πρέπει να περιέχει τις τιμές :values.',
-  integer: 'Το πεδίο :attribute πρέπει να είναι ένας ακέραιος αριθμός.',
-  max: 'Η τιμή του πεδίου :attribute δεν μπορεί να είναι μεγαλύτερη απο :max:type.',
-  min: 'Η τιμή του πεδίου :attribute πρέπει να είναι τουλάχιστον :min:type.',
-  not_in: 'Η επιλεγμένη τιμή :attribute δεν πρέπει να περιέχει :values.',
-  not_regex: 'Η τιμή :attribute δεν πρέπει να ταιριάζει με το υπόδειγμα.',
-  numeric: 'Η τιμή :attribute πρέπει να είναι αριθμός.',
-  phone: 'Το πεδίο :attribute πρέπει να είναι ένας έγκυρος τηλεφωνικός αριθμός.',
-  regex: 'Η τιμή του πεδίου :attribute πρέπει να ταιριάζει στο υπόδειγμα.',
-  required: 'Το πεδίο :attribute είναι υποχρεωτικό.',
-  size: 'Η τιμή του πεδίου :attribute πρέπει να ισούται με :size:type.',
-  string: 'Ο τύπος του πεδίου :attribute πρέπει να ειναι string',
-  "typeof": 'Η τιμή του πεδίου :attribute δεν ταιρίαζει με τον τύπο :type.',
-  url: 'Η τιμή του πεδίου :attribute πρέπει να είναι της μορφής λινκ(url).'
+LarawoeReactValidator.addLocale("el", {
+  accepted: {
+    message: "Πρέπει να αποδεχετείτε το πεδίο :attribute",
+    summary: "Αποδοχή πεδίου :attribute."
+  },
+  after: {
+    message: "Η ημ/νία :attribute πρέπει να είναι μετά από :date.",
+    summary: "Μετά το :date."
+  },
+  after_or_equal: {
+    message: "Η ημ/νία :attribute πρέπει να είναι ίση με ή μετά από :date.",
+    summary: "Μετά ή στο :date."
+  },
+  alpha: {
+    message: "Το πεδίο :attribute μπορεί να περιέχει μόνο γράμματα",
+    summary: "Μόνο γράμματα στο πεδίο :attribute."
+  },
+  alpha_space: {
+    message: "Το πεδίο :attribute μπορεί να περιέχει μόνο γράμματα και κενά.",
+    summary: "Γράμματα και κενά μόνο."
+  },
+  alpha_num: {
+    message: "Το πεδίο :attribute μπορεί να περιέχει μόνο γράμματα και αριθμούς.",
+    summary: "Γράμματα και αριθμοί μόνο."
+  },
+  alpha_num_space: {
+    message: "Το πεδίο :attribute μπορεί να περιέχει μόνο γράμματα, κενά και αριθμούς.",
+    summary: "Γράμματα, αριθμοί και κενά μόνο."
+  },
+  alpha_num_dash: {
+    message: "Το πεδίο :attribute μπορεί να περιέχει μόνο γράμματα, κενά και παύλες(-).",
+    summary: "Γράμματα, αριθμοί και παύλες (-) μόνο."
+  },
+  alpha_num_dash_space: {
+    message: "Το πεδίο :attribute μπορεί να περιέχει μόνο αριθμούς, κενά και παύλες(-).",
+    summary: "Γράμματα, αριθμοί, παύλες (-) και κενά μόνο."
+  },
+  array: {
+    message: "Το πεδίο :attribute πρέπει να είναι array.",
+    summary: "Απαιτείται πίνακας."
+  },
+  before: {
+    message: "Η ημ/νία πρέπει να είναι πριν από :date.",
+    summary: "Πριν το :date."
+  },
+  before_or_equal: {
+    message: "Η ημ/νία πρέπει να είναι πριν ή ίση με :date.",
+    summary: "Πριν ή στο :date."
+  },
+  between: {
+    message: "Η τιμή του πεδίου :attribute πρέπει να βρίσκεται ανάμεσα από :min - :max:type.",
+    summary: "Τιμή ανάμεσα σε :min - :max:type."
+  },
+  "boolean": {
+    message: "Το πεδίο :attribute πρέπει να είναι boolean",
+    summary: "Πρέπει να είναι boolean."
+  },
+  card_exp: {
+    message: "To πεδίο :attribute πρέπει να είναι μια έγκυρη ημ/νία.",
+    summary: "Έγκυρη ημερομηνία λήξης."
+  },
+  card_num: {
+    message: "Το πεδίο :attribute πρέπει να είναι ένας έγκυρος αριθμός κάρτας.",
+    summary: "Έγκυρος αριθμός κάρτας."
+  },
+  currency: {
+    message: "Το πεδίο :attribute πρέπει να έιναι ένα έγκυρο ποσό",
+    summary: "Έγκυρο νόμισμα."
+  },
+  date: {
+    message: "Το πεδίο :attribute πρέπει να είναι μια έγκυρη ημ/νία.",
+    summary: "Απαιτείται ημερομηνία."
+  },
+  date_equals: {
+    message: "Η ημ/νία :attribute πρέπει να είναι ίδια με :date.",
+    summary: "Ίδια με :date."
+  },
+  email: {
+    message: "Το πεδίο :attribute πρέπει να είναι ένα έγκυρο email.",
+    summary: "Έγκυρη διεύθυνση email."
+  },
+  "in": {
+    message: "To πεδίο :attribute πρέπει να περιέχει τις τιμές :values.",
+    summary: "Πρέπει να είναι στις τιμές: :values."
+  },
+  integer: {
+    message: "Το πεδίο :attribute πρέπει να είναι ένας ακέραιος αριθμός.",
+    summary: "Απαιτείται ακέραιος αριθμός."
+  },
+  max: {
+    message: "Η τιμή του πεδίου :attribute δεν μπορεί να είναι μεγαλύτερη απο :max:type.",
+    summary: "Μέγιστο: :max:type."
+  },
+  min: {
+    message: "Η τιμή του πεδίου :attribute πρέπει να είναι τουλάχιστον :min:type.",
+    summary: "Ελάχιστο: :min:type."
+  },
+  not_in: {
+    message: "Η επιλεγμένη τιμή :attribute δεν πρέπει να περιέχει :values.",
+    summary: "Δεν πρέπει να είναι στις τιμές: :values."
+  },
+  not_regex: {
+    message: "Η τιμή :attribute δεν πρέπει να ταιριάζει με το υπόδειγμα.",
+    summary: "Δεν πρέπει να ταιριάζει με το πρότυπο."
+  },
+  numeric: {
+    message: "Η τιμή :attribute πρέπει να είναι αριθμός.",
+    summary: "Μόνο αριθμοί."
+  },
+  phone: {
+    message: "Το πεδίο :attribute πρέπει να είναι ένας έγκυρος τηλεφωνικός αριθμός.",
+    summary: "Έγκυρος αριθμός τηλεφώνου."
+  },
+  regex: {
+    message: "Η τιμή του πεδίου :attribute πρέπει να ταιριάζει στο υπόδειγμα.",
+    summary: "Πρέπει να ταιριάζει με το πρότυπο."
+  },
+  required: {
+    message: "Το πεδίο :attribute είναι υποχρεωτικό.",
+    summary: "Απαιτείται."
+  },
+  size: {
+    message: "Η τιμή του πεδίου :attribute πρέπει να ισούται με :size:type.",
+    summary: "Μέγεθος: :size:type."
+  },
+  string: {
+    message: "Ο τύπος του πεδίου :attribute πρέπει να ειναι string",
+    summary: "Απαιτείται συμβολοσειρά."
+  },
+  "typeof": {
+    message: "Η τιμή του πεδίου :attribute δεν ταιρίαζει με τον τύπο :type.",
+    summary: "Λανθασμένος τύπος, απαιτείται :type."
+  },
+  url: {
+    message: "Η τιμή του πεδίου :attribute πρέπει να είναι της μορφής λινκ(url).",
+    summary: "Απαιτείται URL."
+  }
 });
 return null;
 }));

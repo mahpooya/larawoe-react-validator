@@ -1,51 +1,153 @@
-// Simple React Validator v1.6.2 | Created By Dockwa | MIT License | 2017 - Present
+// Larawoe React Validator v1.6.7 | Created By Dockwa | Moded By Mahpooya | MIT License | 2017 - Present
 ;(function(root, factory) {
   if (typeof define === 'function' && define.amd) {
-    define(['simple-react-validator'], factory);
+    define(['larawoe-react-validator'], factory);
   } else if (typeof exports === 'object') {
-    module.exports = factory(require('simple-react-validator'));
+    module.exports = factory(require('larawoe-react-validator'));
   } else {
-    root.SimpleReactValidatorLocaleSr = factory(root.SimpleReactValidator);
+    root.LarawoeReactValidatorLocaleSr = factory(root.LarawoeReactValidator);
   }
-}(this, function(SimpleReactValidator) {
+}(this, function(LarawoeReactValidator) {
 "use strict";
 
 // Serbian
-SimpleReactValidator.addLocale('sr', {
-  accepted: 'Polje :attribute mora biti prihvaćeno.',
-  after: 'Polje :attribute mora biti nakon :date.',
-  after_or_equal: 'Polje :attribute mora biti nakon ili na :date.',
-  alpha: 'Polje :attribute može sadržati samo slova.',
-  alpha_space: 'Polje :attribute može sadržati samo slova i razmake.',
-  alpha_num: 'Polje :attribute može sadržati samo slova i brojeve.',
-  alpha_num_space: 'Polje :attribute može sadržati samo slova, brojeve i razmake.',
-  alpha_num_dash: 'Polje :attribute može sadržati samo slova, brojeve i crte.',
-  alpha_num_dash_space: 'Polje :attribute može sadržati samo slova, brojeve, crte i razmake.',
-  array: 'Polje :attribute mora biti niz.',
-  before: 'Polje :attribute mora biti pre :date.',
-  before_or_equal: 'Polje :attribute mora biti pre ili na :date.',
-  between: 'Polje :attribute mora biti između :min i :max:type.',
-  "boolean": 'Polje :attribute mora biti istinitosna vrednost.',
-  card_exp: 'Polje :attribute mora biti validan datum isteka.',
-  card_num: 'Polje :attribute mora biti validan broj kreditne kartice.',
-  currency: 'Polje :attribute mora biti validna valuta.',
-  date: 'Polje :attribute mora biti datum.',
-  date_equals: 'Polje :attribute mora biti na :date.',
-  email: 'Polje :attribute mora biti validna email adresa.',
-  "in": 'Izabrano polje :attribute mora biti :values.',
-  integer: 'Polje :attribute mora biti ceo broj.',
-  max: 'Polje :attribute ne sme biti veće od :max:type.',
-  min: 'Polje :attribute mora biti veće od :min:type.',
-  not_in: 'Izabrano polje :attribute ne sme biti :values.',
-  not_regex: 'Polje :attribute ne sme biti u određenom formatu.',
-  numeric: 'Polje :attribute mora biti broj.',
-  phone: 'Polje :attribute mora biti validan broj telefona.',
-  regex: 'Polje :attribute mora biti u određenom formatu.',
-  required: 'Polje :attribute je obavezno.',
-  size: 'Polje :attribute mora biti :size:type.',
-  string: 'Polje :attribute mora biti niska.',
-  "typeof": 'Polje :attribute nije ispravan tip :type.',
-  url: 'Polje :attribute mora biti URL.'
+LarawoeReactValidator.addLocale("sr", {
+  accepted: {
+    message: "Polje :attribute mora biti prihvaćeno.",
+    summary: "Prihvatanje potrebno."
+  },
+  after: {
+    message: "Polje :attribute mora biti nakon :date.",
+    summary: "Nakon :date."
+  },
+  after_or_equal: {
+    message: "Polje :attribute mora biti nakon ili na :date.",
+    summary: "Nakon/na :datum"
+  },
+  alpha: {
+    message: "Polje :attribute može sadržati samo slova.",
+    summary: "Atribut samo za pisma."
+  },
+  alpha_space: {
+    message: "Polje :attribute može sadržati samo slova i razmake.",
+    summary: "Samo slova i razmaci"
+  },
+  alpha_num: {
+    message: "Polje :attribute može sadržati samo slova i brojeve.",
+    summary: "Slova i brojevi samo"
+  },
+  alpha_num_space: {
+    message: "Polje :attribute može sadržati samo slova, brojeve i razmake.",
+    summary: "Samo slova, brojevi i razmaci"
+  },
+  alpha_num_dash: {
+    message: "Polje :attribute može sadržati samo slova, brojeve i crte.",
+    summary: "Samo slova, brojevi i crtice"
+  },
+  alpha_num_dash_space: {
+    message: "Polje :attribute može sadržati samo slova, brojeve, crte i razmake.",
+    summary: "samo slova, brojevi, crtice i razmaci"
+  },
+  array: {
+    message: "Polje :attribute mora biti niz.",
+    summary: "Potreban je niz"
+  },
+  before: {
+    message: "Polje :attribute mora biti pre :date.",
+    summary: "Pre :date"
+  },
+  before_or_equal: {
+    message: "Polje :attribute mora biti pre ili na :date.",
+    summary: "Pre/na :datum"
+  },
+  between: {
+    message: "Polje :attribute mora biti između :min i :max:type.",
+    summary: "Između :min i :mak:tipe"
+  },
+  "boolean": {
+    message: "Polje :attribute mora biti istinitosna vrednost.",
+    summary: "Mora da je boolean"
+  },
+  card_exp: {
+    message: "Polje :attribute mora biti validan datum isteka.",
+    summary: "Važeći datum isteka"
+  },
+  card_num: {
+    message: "Polje :attribute mora biti validan broj kreditne kartice.",
+    summary: "Važeći broj kreditne kartice"
+  },
+  currency: {
+    message: "Polje :attribute mora biti validna valuta.",
+    summary: "Važeća valuta"
+  },
+  date: {
+    message: "Polje :attribute mora biti datum.",
+    summary: "Datum potrebno"
+  },
+  date_equals: {
+    message: "Polje :attribute mora biti na :date.",
+    summary: "Na :date date"
+  },
+  email: {
+    message: "Polje :attribute mora biti validna email adresa.",
+    summary: "Ispravnu email adresu"
+  },
+  "in": {
+    message: "Izabrano polje :attribute mora biti :values.",
+    summary: "Mora biti u :values"
+  },
+  integer: {
+    message: "Polje :attribute mora biti ceo broj.",
+    summary: "Potreban ceo broj"
+  },
+  max: {
+    message: "Polje :attribute ne sme biti veće od :max:type.",
+    summary: "Mak: :mak:tipe"
+  },
+  min: {
+    message: "Polje :attribute mora biti veće od :min:type.",
+    summary: "Min: :min:tipe"
+  },
+  not_in: {
+    message: "Izabrano polje :attribute ne sme biti :values.",
+    summary: "Ne sme biti u :values"
+  },
+  not_regex: {
+    message: "Polje :attribute ne sme biti u određenom formatu.",
+    summary: "Ne sme da se podudara sa šablonom"
+  },
+  numeric: {
+    message: "Polje :attribute mora biti broj.",
+    summary: "Samo numerički"
+  },
+  phone: {
+    message: "Polje :attribute mora biti validan broj telefona.",
+    summary: "Važeći broj telefona."
+  },
+  regex: {
+    message: "Polje :attribute mora biti u određenom formatu.",
+    summary: "Mora da se podudara sa šablonom"
+  },
+  required: {
+    message: "Polje :attribute je obavezno.",
+    summary: "Potreban"
+  },
+  size: {
+    message: "Polje :attribute mora biti :size:type.",
+    summary: "Veličina: :veličina:tip"
+  },
+  string: {
+    message: "Polje :attribute mora biti niska.",
+    summary: "Potreban je niz"
+  },
+  "typeof": {
+    message: "Polje :attribute nije ispravan tip :type.",
+    summary: "Netačan tip, potreban je :tipe"
+  },
+  url: {
+    message: "Polje :attribute mora biti URL.",
+    summary: "URL je potreban."
+  }
 });
 return null;
 }));
